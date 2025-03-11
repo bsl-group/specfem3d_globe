@@ -8,6 +8,8 @@ Of course, the `Par_file` needs adapting for periods (see documentation). The so
 
 Source and Receiver lists and properties also need to be adapted, which can be done using https://github.com/bsl-group/submit-jobs-specfem (do not use the specfem version on that repository, as it is obsolete). 
 
+Run scripts and Makefiles for clusters other than anvil have been added, but not tested, just copy-pasted from previous versions. Use at your own risk. 
+
 # Specfem3D Globe
 
 [![DOI](https://zenodo.org/badge/17524829.svg)](https://zenodo.org/doi/10.5281/zenodo.7756943)
