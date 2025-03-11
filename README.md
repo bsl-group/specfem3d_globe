@@ -8,7 +8,7 @@ Of course, the `Par_file` needs adapting for periods (see documentation). The so
 
 Source and Receiver lists and properties also need to be adapted, which can be done using https://github.com/bsl-group/submit-jobs-specfem (do not use the specfem version on that repository, as it is obsolete). 
 
-Run scripts and Makefiles for clusters other than anvil have been added, but not tested, just copy-pasted from previous versions. Use at your own risk. 
+Run scripts and Makefiles for clusters other than anvil have been added, but not tested, just copy-pasted from previous versions. Use them at your own risk, or just as a template. Alternatively, `./configure FC=gfortran CC=gcc MPIFC=mpif90` generates a Makefile, with your compiler of choice substituted in it. 
 
 # Specfem3D Globe
 
