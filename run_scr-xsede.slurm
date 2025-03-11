@@ -1,12 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name comp_solv
-#SBATCH --time=02:30:00
-#SBATCH --partition=regular
-#SBATCH --nodes=3
-#SBATCH --ntasks=294
+#SBATCH --job-name RUN11
+#SBATCH --time=02:40:00
+#SBATCH --partition=skx-normal
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=48
 #SBATCH --verbose
 #SBATCH --exclusive
-#SBATCH -p wholenode     # Queue (partition) name
 #SBATCH --error job_%j.err
 #SBATCH --output job_%j.log
 #SBATCH --mail-type=all
@@ -22,10 +21,8 @@ NCHUNKS=`grep ^NCHUNKS DATA/Par_file | cut -c 34- `
 # total number of nodes is the product of the values read
 numnodes=$(( $NCHUNKS * $NPROC_XI * $NPROC_ETA ))
 echo "Num of processes: $numnodes"
-SRUN_ARGS="--mpi=pmi2 -n $numnodes"
+SRUN_ARGS="-n $numnodes"
 
-module purge
-module load intel impi
 
 # module purge
 # module load shared gcc/6.3.0 openmpi-2.1.1/gcc-6.3.0 slurm 
@@ -55,7 +52,7 @@ else
 echo ">>>> Running Mesh `TZ="America/Los_Angeles" date`"
 start=`date +%s`
 # Running Mesher
-srun $SRUN_ARGS ${binloc}/bin/xmeshfem3D
+ibrun $SRUN_ARGS ${binloc}/bin/xmeshfem3D
 #srun $SRUN_ARGS ${binloc}/bin/xmeshfem3D
 end=`date +%s`
 runtime=$((end-start))
@@ -66,7 +63,7 @@ echo ">>>> Running Spec `TZ="America/Los_Angeles" date`"
 start=`date +%s`
 # Running simulation
 #mpiexec $SRUN_ARGS ./bin/xspecfem3D
-srun $SRUN_ARGS ${binloc}/bin/xspecfem3D
+ibrun $SRUN_ARGS ${binloc}/bin/xspecfem3D
 #srun $SRUN_ARGS ${binloc}/bin/xspecfem3D
 end=`date +%s`
 runtime=$((end-start))
