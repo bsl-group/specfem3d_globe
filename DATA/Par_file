@@ -21,12 +21,12 @@ GAMMA_ROTATION_AZIMUTH          = 0.d0
 
 # number of elements at the surface along the two sides of the first chunk
 # (must be multiple of 16 and 8 * multiple of NPROC below)
-NEX_XI                          = 192
-NEX_ETA                         = 192
+NEX_XI                          = 112
+NEX_ETA                         = 112
 
 # number of MPI processors along the two sides of the first chunk
-NPROC_XI                        = 12
-NPROC_ETA                       = 12
+NPROC_XI                        = 7
+NPROC_ETA                       = 7
 
 #-----------------------------------------------------------
 #
@@ -276,8 +276,8 @@ STF_IS_UCB_HEAVISIDE            = .true.
 # UCB source frequency content (i.e., heaviside function)
 SOURCE_T1                       = 500.d0
 SOURCE_T2                       = 400.d0
-SOURCE_T3                       =  30.d0
-SOURCE_T4                       =  25.d0
+SOURCE_T3                       =  50.d0
+SOURCE_T4                       =  40.d0
 # UCB source time shift
 TAU                             = 500.d0
 
@@ -446,3 +446,4 @@ ADIOS_FOR_UNDO_ATTENUATION      = .true.
 # HDF5 Database I/O
 # (note the flags for HDF5 and ADIOS are mutually exclusive, only one can be used)
 HDF5_ENABLED                    = .false.
+
