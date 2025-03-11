@@ -1,3 +1,13 @@
+# Berkeley SpecFEM
+
+This is the 8.1 devel version of Specfem3D Globe, with all configuration files set for the Anvil cluster. 
+
+The Makefile uses the Intel and IMPI compilers, so they need to be loaded for compilation
+
+Of course, the `Par_file` needs adapting for periods (see documentation). The source spectrum is in `constants.h`. 
+
+Source and Receiver lists and properties also need to be adapted, which can be done using https://github.com/bsl-group/submit-jobs-specfem (do not use the specfem version on that repository, as it is obsolete). 
+
 # Specfem3D Globe
 
 [![DOI](https://zenodo.org/badge/17524829.svg)](https://zenodo.org/doi/10.5281/zenodo.7756943)
